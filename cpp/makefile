@@ -1,4 +1,4 @@
-all : PreorderTraversal InorderTraversal PostorderTraversal
+all : PreorderTraversal InorderTraversal PostorderTraversal DeleteDuplicates
 
 CC = g++
 
@@ -22,7 +22,14 @@ PostorderTraversal: postorder_traversal.o
 postorder_traversal.o: postorder_traversal.cc
 	$(CC) -c postorder_traversal.cc --std=c++11
 
+DeleteDuplicates: delete_duplicates.o
+	$(CC) -o DeleteDuplicates delete_duplicates.o
+
+delete_duplicates.o: delete_duplicates.cc
+	$(CC) -c delete_duplicates.cc --std=c++11
+
 clean:
 	rm -f PreorderTraversal preorder_traversal.o \
 	      InorderTraversal inorder_traversal.o \
-		  PostorderTraversal postorder_traversal.o
+		  PostorderTraversal postorder_traversal.o \
+		  DeleteDuplicates delete_duplicates.o
